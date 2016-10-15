@@ -1,4 +1,4 @@
-
+# Using python 2.7
 
 import urllib.request
 #!/usr/bin/env python
@@ -8,23 +8,17 @@ import sys
 myFile=sys.argv[1];
 
 def CheckUrl(link):
-    #code = urllib.request.urlopen(link).code;
+    # validate url; a way to check if it is a correct url format
     try:
         urllib.request.urlopen(link)
         return True;
     except:
         return False;
-    
 
-
-def getMyFile(myFile):
-    file = open(myFile, 'r');
-    for line in file:
-        print (line);
 
 
 index=0;
-filename="C:/Users/Konso/Pictures/scripts/im";
+filename="C:/Users/Konso/Pictures/scripts/im"; # directory where the images will be stored, can be changed by the user to suit its need
 
 
 file = open(myFile, 'r');
@@ -33,9 +27,15 @@ for line in file:
     print(line);
     if(CheckUrl(line)==True):
         
-        urllib.request.urlretrieve(line, filename+str(index)+".jpg");
+        urllib.request.urlretrieve(line, filename+str(index)+".jpg"); # images are stored using name : im+index;
     else :
         print ("Could not save");
+        
+
+
+
+
+
         
 
 
